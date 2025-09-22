@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <!-- Meta: базовая SEO и мобильные -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Johongir — портфолио разработчика</title>
+  <meta name="description"
+    content="Джохонгир — программист и исследователь. Создаю современные web‑проекты с акцентом на минимализм и премиальную эстетику." />
+  <meta property="og:title" content="Jahongir — портфолио разработчика" />
+  <meta property="og:description" content="Программист, исследователь, создаю цифровые миры." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://example.com/" />
+  <meta property="og:image" content="https://example.com/og-image.jpg" />
+
+  <!-- Шрифты: Inter + Poppins (через Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Стили -->
+  <link rel="stylesheet" href="./style.css" />
+
+  <!-- Favicon (при необходимости заменить путём) -->
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Ctext y='0.9em' font-size='90'%3E💡%3C/text%3E%3C/svg%3E" />
+
+</head>
+
+<body>
+  <!-- Фоновая анимация: Canvas (c возможностью отключения) -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- Кнопка отключения анимации фона -->
+  <button class="btn btn--ghost bg-toggle" id="toggle-bg" aria-pressed="false" aria-label="Переключить анимацию фона">
+    <span class="btn__label">Анимация: вкл</span>
+  </button>
+
+  <!-- Шапка сайта -->
+  <header class="site-header" id="top">
+    <div class="container header__inner">
+      <!-- Логотип/имя -->
+      <a href="#top" class="brand" aria-label="На главную">
+        <span class="brand__mark" aria-hidden="true">J</span>
+        <span class="brand__name">Johongir</span>
+      </a>
+
+      <!-- Навигация -->
+      <nav class="nav" aria-label="Основная навигация">
+        <button class="nav__toggle" id="navToggle" aria-label="Меню" aria-expanded="false" aria-controls="siteNav">
+          <span class="nav__bar" aria-hidden="true"></span>
+          <span class="nav__bar" aria-hidden="true"></span>
+          <span class="nav__bar" aria-hidden="true"></span>
+        </button>
+        <ul class="nav__list" id="siteNav">
+          <li><a class="nav__link" href="#hero">Главная</a></li>
+          <li><a class="nav__link" href="#about">Обо мне</a></li>
+          <li><a class="nav__link" href="#skills">Навыки</a></li>
+          <li><a class="nav__link" href="#projects">Проекты</a></li>
+          <li><a class="nav__link" href="#contact">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <!-- Переключатель темы -->
+      <button class="btn theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+        <span class="theme-toggle__icon" aria-hidden="true">
+          <!-- Встроенные SVG-иконки -->
+          <svg class="icon icon--sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <path
+              d="M12 4V2M12 22v-2M4.93 4.93L3.51 3.51M20.49 20.49l-1.42-1.42M4 12H2M22 12h-2M4.93 19.07l-1.42 1.42M20.49 3.51l-1.42 1.42"
+              stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" />
+            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2" fill="none" />
+          </svg>
+          <svg class="icon icon--moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" fill="currentColor" />
+          </svg>
+        </span>
+        <span class="btn__label">Тема</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" class="site-main">
+    <!-- Hero секция -->
+    <section id="hero" class="section hero" aria-label="Вступительный блок">
+      <div class="container hero__inner reveal">
+        <div class="hero__text">
+          <h1 class="hero__title">Кобилов Джохонгир</h1>
+          <p class="hero__subtitle">Студент, программист, исследователь, оператор</p>
+          <div class="hero__cta">
+            <a class="btn btn--primary mag" href="https://t.me/h4tenigg4s" target="_blank" rel="noopener"
+              aria-label="Связаться в Telegram">
+              <span class="btn__glow" aria-hidden="true"></span>
+              <span class="btn__label">Связаться</span>
+            </a>
+            <a class="btn btn--secondary mag" href="https://github.com/Kblv37" target="_blank" rel="noopener"
+              aria-label="Открыть GitHub">
+              <span class="btn__glow" aria-hidden="true"></span>
+              <span class="btn__label">GitHub</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Круглый аватар. Замените src на свой файл/URL. Размер фиксируем для стабильности макета -->
+        <div class="hero__avatar">
+          <img src="me.webp" alt="Аватар Джохонгира" loading="eager" decoding="async" style="aspect-ratio:1/1" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Обо мне -->
+    <section id="about" class="section about" aria-labelledby="about-title">
+      <div class="container reveal">
+        <h2 id="about-title" class="section__title">Обо мне</h2>
+        <p class="about__text">
+          Меня зовут Джохонгир. Я студент UMFT, обучаюсь по направлению программная инженерия (2 курс из 4). Для меня
+          программирование — это не просто написание кода, а создание систем, которые работают быстро, выглядят
+          современно и приносят реальную пользу.
+          <br><br>
+          Я увлекаюсь современными подходами к веб-разработке, дизайном интерфейсов и архитектурой приложений. Стремлюсь
+          развиваться так, чтобы объединять в себе инженера и дизайнера. В будущем хочу создавать продукты, которые
+          будут облегчать жизнь людей и делать технологии доступнее.
+        </p>
+
+        <ul class="about__interests" aria-label="Мои профессиональные интересы">
+          <li><span class="tag">UI/UX</span></li>
+          <li><span class="tag">Performance</span></li>
+          <li><span class="tag">Web Animations</span></li>
+          <li><span class="tag">Design Systems</span></li>
+          <li><span class="tag">Accessibility</span></li>
+          <li><span class="tag">Clean Code</span></li>
+          <li><span class="tag">Problem Solving</span></li>
+          <li><span class="tag">Full-Stack</span></li>
+          <li><span class="tag">Open Source</span></li>
+          <li><span class="tag">AI & Automation</span></li>
+        </ul>
+
+        <br>
+
+        <h2 id="beyond-title" class="section__title">Помимо программирования</h2>
+        <p class="about__text">
+          В свободное время я стараюсь развиваться и в других сферах. Мне интересны книги — как художественные, так и
+          политические. В изучении кодинга мне помогает мой друг Игорь, а ещё я люблю читать статьи и следить за
+          политическими событиями. Иногда могу зависнуть на YouTube, особенно на политических подкастах.
+          Также увлекаюсь изучением религий, чтобы расширять своё мировоззрение и лучше понимать культуру и историю
+          разных народов.
+        </p>
+
+        <br>
+
+        <h2 id="music-title" class="section__title">Музыка и песни</h2>
+        <p class="about__text">
+          Музыку слушаю самых разных жанров: инди, поп, инди-поп, рок, альт-рок, хип-хоп, рэп и даже классику.
+          Больше всего нравятся группы <strong>Radiohead, Cigarettes After Sex, Muse, Linkin Park, Keane, Scorpions,
+            Reamonn, The Neighbourhood, Tame Impala, Deftones, A-ha, Coldplay, Shamrain, The Rasmus, The Smiths, Arctic
+            Monkeys, Sting, Limp Bizkit, Duran Duran</strong>.
+          Среди любимых исполнителей — <strong>Lana Del Rey, Billie Eilish, Tom Odell, d4vd, Frank Ocean, Gary
+            Moore</strong> и многие другие.
+          <br><br>
+          В мире классической музыки особенно ценю творчество <strong>Шопена, Бетховена, Листа, Моцарта, Рахманинова,
+            Баха и Вивальди</strong>.
+        </p>
+
+        <br>
+
+        <h2 id="chess-title" class="section__title">Шахматы</h2>
+        <p class="about__text">
+          Отдельное место в моих интересах занимают шахматы. Я люблю изучать дебюты гроссмейстеров и сам играю онлайн на
+          платформах <strong>Chess.com</strong> и <strong>Lichess</strong>, а также в программах
+          <strong>Tarrasch</strong> и <strong>Lucas Chess</strong>.
+          <br><br>
+          С интересом слежу за партиями <strong>Магнуса Карлсена, Леви Розмана, Хикару Накамуры, Гарри Каспарова,
+            Нодирбека Абдусатторова, Яна Непомнящего, Дины Беленковой, Анны Крамлинг</strong> и сестёр
+          <strong>Ботез</strong>.
+        </p>
+      </div>
+    </section>
+
+
+
+    <!-- Навыки -->
+    <section id="skills" class="section skills" aria-labelledby="skills-title">
+      <div class="container reveal">
+        <h2 id="skills-title" class="section__title">Навыки</h2>
+        <div class="skills__grid" role="list">
+          <!-- Карточки навыков: inline SVG, hover glow -->
+          <article class="skill-card" role="listitem" aria-label="HTML">
+            <div class="skill-card__icon" aria-hidden="true">
+
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" />
+
+            </div>
+            <h3 class="skill-card__title">HTML</h3>
+          </article>
+
+          <article class="skill-card" role="listitem" aria-label="CSS">
+            <div class="skill-card__icon" aria-hidden="true">
+
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" />
+
+            </div>
+            <h3 class="skill-card__title">CSS</h3>
+          </article>
+
+          <article class="skill-card" role="listitem" aria-label="JavaScript">
+            <div class="skill-card__icon" aria-hidden="true">
+
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
+
+            </div>
+            <h3 class="skill-card__title">JavaScript</h3>
+          </article>
+
+          <article class="skill-card" role="listitem" aria-label="Python">
+            <div class="skill-card__icon" aria-hidden="true">
+
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" />
+
+            </div>
+            <h3 class="skill-card__title">Python</h3>
+          </article>
+
+          <article class="skill-card" role="listitem" aria-label="C++">
+            <div class="skill-card__icon" aria-hidden="true">
+
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" />
+
+            </div>
+            <h3 class="skill-card__title">C++</h3>
+          </article>
+
+          <article class="skill-card" role="listitem" aria-label="Java">
+            <div class="skill-card__icon" aria-hidden="true">
+
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" />
+
+            </div>
+            <h3 class="skill-card__title">Java</h3>
+          </article>
+
+          <article class="skill-card" role="listitem" aria-label="SQL">
+            <div class="skill-card__icon" aria-hidden="true">
+
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg" />
+
+            </div>
+            <h3 class="skill-card__title">SQL</h3>
+          </article>
+
+          <article class="skill-card" role="listitem" aria-label="SQL">
+            <div class="skill-card__icon" aria-hidden="true">
+
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" />
+
+            </div>
+            <h3 class="skill-card__title">PostgreSQL</h3>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Проекты -->
+    <section id="projects" class="section projects" aria-labelledby="projects-title">
+      <div class="container reveal">
+        <h2 id="projects-title" class="section__title">Проекты</h2>
+
+        <div class="projects__grid" role="list">
+          <!-- Карточка проекта: укажите свои данные -->
+          <article class="project-card" role="listitem">
+            <div class="project-card__media">
+              <img src="twindrop.png"
+                alt="Скриншот проекта: сервис Twindrop для P2P-обмена файлами" width="800" height="600" loading="lazy"
+                style="aspect-ratio: 4/3" />
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title">Twindrop</h3>
+              <p class="project-card__desc">
+                Лёгкий и элегантный сервис P2P-обмена файлами прямо в браузере — без регистрации, без облаков, только
+                защищённый WebRTC-канал.
+              </p>
+              <ul class="project-card__tags" aria-label="Теги проекта">
+                <li class="tag">WebRTC</li>
+                <li class="tag">P2P</li>
+                <li class="tag">Socket.IO</li>
+              </ul>
+              <div class="project-card__actions">
+                <a class="btn btn--primary mag" href="https://twindrop.netlify.app/" target="_blank" rel="noopener">
+                  <span class="btn__glow" aria-hidden="true"></span>
+                  <span class="btn__label">Посмотреть</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 
+          <article class="project-card" role="listitem">
+            <div class="project-card__media">
+              <img src="https://images.unsplash.com/photo-1505238680356-667803448bb6?q=80&w=800&auto=format&fit=crop"
+                alt="Скриншот проекта: сайт портфолио" width="800" height="600" loading="lazy"
+                style="aspect-ratio: 4/3" />
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title">Portfolio Site</h3>
+              <p class="project-card__desc">Минималистичный сайт с neo‑brutalism акцентами и плавными эффектами.</p>
+              <ul class="project-card__tags">
+                <li class="tag">HTML</li>
+                <li class="tag">CSS</li>
+                <li class="tag">JS</li>
+              </ul>
+              <div class="project-card__actions">
+                <a class="btn btn--primary mag" href="#" target="_blank" rel="noopener">
+                  <span class="btn__glow" aria-hidden="true"></span>
+                  <span class="btn__label">Посмотреть</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" role="listitem">
+            <div class="project-card__media">
+              <img src="https://images.unsplash.com/photo-1516959512470-53955cd40c6a?q=80&w=800&auto=format&fit=crop"
+                alt="Скриншот проекта: мобильное приложение" width="800" height="600" loading="lazy"
+                style="aspect-ratio: 4/3" />
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title">Mobile Companion</h3>
+              <p class="project-card__desc">Приложение‑ассистент с офлайн‑режимом и умной синхронизацией.</p>
+              <ul class="project-card__tags">
+                <li class="tag">PWA</li>
+                <li class="tag">Sync</li>
+                <li class="tag">Offline</li>
+              </ul>
+              <div class="project-card__actions">
+                <a class="btn btn--primary mag" href="#" target="_blank" rel="noopener">
+                  <span class="btn__glow" aria-hidden="true"></span>
+                  <span class="btn__label">Посмотреть</span>
+                </a>
+              </div>
+            </div>
+          </article> -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contact" class="section contact" aria-labelledby="contact-title">
+      <div class="container reveal">
+        <h2 id="contact-title" class="section__title">Контакты</h2>
+        <div class="contact__grid">
+          <a class="btn btn--secondary mag" href="https://t.me/h4tenigg4s" target="_blank" rel="noopener"
+            aria-label="Открыть Telegram">
+            <span class="btn__glow" aria-hidden="true"></span>
+            <span class="btn__label">Telegram</span>
+          </a>
+          <a class="btn btn--secondary mag" href="https://x.com/kblv37" target="_blank" rel="noopener"
+            aria-label="Открыть Twitter">
+            <span class="btn__glow" aria-hidden="true"></span>
+            <span class="btn__label">Twitter</span>
+          </a>
+          <a class="btn btn--secondary mag" href="https://instagram.com/kblv37" target="_blank" rel="noopener"
+            aria-label="Открыть Instagram">
+            <span class="btn__glow" aria-hidden="true"></span>
+            <span class="btn__label">Instagram</span>
+          </a>
+          <a class="btn btn--secondary mag" href="https://github.com/Kblv37" target="_blank" rel="noopener"
+            aria-label="Открыть GitHub">
+            <span class="btn__glow" aria-hidden="true"></span>
+            <span class="btn__label">GitHub</span>
+          </a>
+          <a class="btn btn--secondary mag" href="https://www.threads.com/@kblv37" target="_blank" rel="noopener"
+            aria-label="Открыть Threads">
+            <span class="btn__glow" aria-hidden="true"></span>
+            <span class="btn__label">Threads</span>
+          </a>
+          <a class="btn btn--secondary mag" href="mailto:kabilov.johongir@gmail.com" aria-label="Написать на email">
+            <span class="btn__glow" aria-hidden="true"></span>
+            <span class="btn__label">Email</span>
+          </a>
+          <a class="btn btn--secondary mag" href="https://chess.com/member/kabilov7" aria-label="Chess.com">
+            <span class="btn__glow" aria-hidden="true"></span>
+            <span class="btn__label">Chess.com</span>
+          </a>
+          <a class="btn btn--secondary mag" href="https://lichess.org/@/kblv" aria-label="Lichess">
+            <span class="btn__glow" aria-hidden="true"></span>
+            <span class="btn__label">Lichess</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Подвал -->
+  <footer class="site-footer">
+    <div class="container footer__inner">
+      <p class="footer__copy">© 2025 Jahongir. Создано с любовью к коду.</p>
+      <a class="btn btn--ghost to-top mag" href="#top" aria-label="Наверх">
+        <span class="btn__glow" aria-hidden="true"></span>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Скрипты -->
+
+  <script src="./script.js" defer></script>
+</body>
+
+</html>
