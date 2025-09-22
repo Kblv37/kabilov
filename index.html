@@ -7,48 +7,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Johongir — портфолио разработчика</title>
   <meta name="description"
-    content="Джохонгир — программист и исследователь. Создаю современные web‑проекты с акцентом на минимализм и премиальную эстетику." />
-  <meta property="og:title" content="Jahongir — портфолио разработчика" />
+    content="pb — программист и исследователь. Создаю современные web‑проекты с акцентом на минимализм и премиальную эстетику." />
+  <meta property="og:title" content="Johongir — портфолио разработчика" />
   <meta property="og:description" content="Программист, исследователь, создаю цифровые миры." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://example.com/" />
-  <meta property="og:image" content="https://example.com/og-image.jpg" />
+  <!-- <meta property="og:url" content="https://example.com/" />
+  <meta property="og:image" content="https://example.com/og-image.jpg" /> -->
 
-  <!-- Шрифты: Inter + Poppins (через Google Fonts) -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;700&display=swap"
-    rel="stylesheet" />
+    rel="stylesheet" /> 
 
-  <!-- Стили -->
   <link rel="stylesheet" href="./style.css" />
 
-  <!-- Favicon (при необходимости заменить путём) -->
   <link rel="icon"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Ctext y='0.9em' font-size='90'%3E💡%3C/text%3E%3C/svg%3E" />
 
 </head>
 
 <body>
-  <!-- Фоновая анимация: Canvas (c возможностью отключения) -->
   <canvas id="bg-canvas" aria-hidden="true"></canvas>
 
-  <!-- Кнопка отключения анимации фона -->
   <button class="btn btn--ghost bg-toggle" id="toggle-bg" aria-pressed="false" aria-label="Переключить анимацию фона">
     <span class="btn__label">Анимация: вкл</span>
   </button>
 
-  <!-- Шапка сайта -->
   <header class="site-header" id="top">
     <div class="container header__inner">
-      <!-- Логотип/имя -->
       <a href="#top" class="brand" aria-label="На главную">
         <span class="brand__mark" aria-hidden="true">J</span>
-        <span class="brand__name">Johongir</span>
+        <span class="brand__name">PerceptiveBinary</span>
       </a>
 
-      <!-- Навигация -->
       <nav class="nav" aria-label="Основная навигация">
         <button class="nav__toggle" id="navToggle" aria-label="Меню" aria-expanded="false" aria-controls="siteNav">
           <span class="nav__bar" aria-hidden="true"></span>
@@ -64,10 +56,8 @@
         </ul>
       </nav>
 
-      <!-- Переключатель темы -->
       <button class="btn theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
         <span class="theme-toggle__icon" aria-hidden="true">
-          <!-- Встроенные SVG-иконки -->
           <svg class="icon icon--sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
             <path
               d="M12 4V2M12 22v-2M4.93 4.93L3.51 3.51M20.49 20.49l-1.42-1.42M4 12H2M22 12h-2M4.93 19.07l-1.42 1.42M20.49 3.51l-1.42 1.42"
@@ -84,7 +74,6 @@
   </header>
 
   <main id="main" class="site-main">
-    <!-- Hero секция -->
     <section id="hero" class="section hero" aria-label="Вступительный блок">
       <div class="container hero__inner reveal">
         <div class="hero__text">
@@ -104,14 +93,12 @@
           </div>
         </div>
 
-        <!-- Круглый аватар. Замените src на свой файл/URL. Размер фиксируем для стабильности макета -->
         <div class="hero__avatar">
           <img src="me.webp" alt="Аватар Джохонгира" loading="eager" decoding="async" style="aspect-ratio:1/1" />
         </div>
       </div>
     </section>
 
-    <!-- Обо мне -->
     <section id="about" class="section about" aria-labelledby="about-title">
       <div class="container reveal">
         <h2 id="about-title" class="section__title">Обо мне</h2>
@@ -181,12 +168,10 @@
 
 
 
-    <!-- Навыки -->
     <section id="skills" class="section skills" aria-labelledby="skills-title">
       <div class="container reveal">
         <h2 id="skills-title" class="section__title">Навыки</h2>
         <div class="skills__grid" role="list">
-          <!-- Карточки навыков: inline SVG, hover glow -->
           <article class="skill-card" role="listitem" aria-label="HTML">
             <div class="skill-card__icon" aria-hidden="true">
 
@@ -263,13 +248,11 @@
       </div>
     </section>
 
-    <!-- Проекты -->
     <section id="projects" class="section projects" aria-labelledby="projects-title">
       <div class="container reveal">
         <h2 id="projects-title" class="section__title">Проекты</h2>
 
         <div class="projects__grid" role="list">
-          <!-- Карточка проекта: укажите свои данные -->
           <article class="project-card" role="listitem">
             <div class="project-card__media">
               <img src="twindrop.png"
@@ -346,7 +329,6 @@
       </div>
     </section>
 
-    <!-- Контакты -->
     <section id="contact" class="section contact" aria-labelledby="contact-title">
       <div class="container reveal">
         <h2 id="contact-title" class="section__title">Контакты</h2>
@@ -393,17 +375,14 @@
     </section>
   </main>
 
-  <!-- Подвал -->
   <footer class="site-footer">
     <div class="container footer__inner">
-      <p class="footer__copy">© 2025 Jahongir. Создано с любовью к коду.</p>
+      <p class="footer__copy">© 2025 PerceptiveBinary.</p>
       <a class="btn btn--ghost to-top mag" href="#top" aria-label="Наверх">
         <span class="btn__glow" aria-hidden="true"></span>
       </a>
     </div>
   </footer>
-
-  <!-- Скрипты -->
 
   <script src="./script.js" defer></script>
 </body>
